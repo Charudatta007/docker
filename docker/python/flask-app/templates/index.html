@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One Piece World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌊 Welcome to One Piece World!! 🏴‍☠️</h1>
+        <p>Set sail and explore the grand adventure!</p>
+        <button onclick="checkServer()">Check Server Status</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        async function checkServer() {
+            const res = await fetch('/api/health');
+            const data = await res.json();
+            document.getElementById('status').innerText = data.message;
+        }
+    </script>
+</body>
+</html>
