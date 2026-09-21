@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cozy Crochet</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🧶 Cozy Crochet
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            Handmade with ❤️
+        </span>
+
+        <h1>
+            Beautiful Crochet,
+            <br>
+            Made With Love
+        </h1>
+
+        <p>
+            Discover handmade crochet creations crafted
+            carefully with beautiful yarn, patience and passion.
+        </p>
+
+        <a href="#collection" class="hero-button">
+            Explore Collection
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1606722590583-6951b5b5f9c9?auto=format&fit=crop&w=900&q=80"
+        alt="Crochet work">
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+        <div class="feature-icon">🧶</div>
+        <h3>Handmade</h3>
+        <p>Every piece is carefully created by hand.</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">❤️</div>
+        <h3>Made With Love</h3>
+        <p>Designed with creativity and passion.</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🌱</div>
+        <h3>Beautiful Materials</h3>
+        <p>Soft and colorful yarns for every creation.</p>
+    </div>
+
+</section>
+
+
+<section id="collection" class="collection">
+
+    <div class="section-title">
+
+        <span>OUR COLLECTION</span>
+
+        <h2>Handmade Crochet Creations</h2>
+
+        <p>
+            Explore some of our favorite crochet creations.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+        {% if products %}
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="{{ product.image_url }}"
+                    alt="{{ product.name }}">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>{{ product.name }}</h3>
+
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                    <div class="price">
+                        ₹{{ product.price }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1588098406325-dc4b5a0c1f4f?auto=format&fit=crop&w=700&q=80">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Handmade Crochet Basket</h3>
+
+                    <p>
+                        Beautiful handmade basket perfect
+                        for your home.
+                    </p>
+
+                    <div class="price">
+                        ₹799
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=700&q=80">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Crochet Flowers</h3>
+
+                    <p>
+                        Colorful handmade crochet flowers.
+                    </p>
+
+                    <div class="price">
+                        ₹499
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=700&q=80">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Crochet Home Decor</h3>
+
+                    <p>
+                        Elegant handmade decoration for
+                        your beautiful home.
+                    </p>
+
+                    <div class="price">
+                        ₹999
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<section id="about" class="about">
+
+    <div class="about-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=900&q=80">
+
+    </div>
+
+    <div class="about-content">
+
+        <span>OUR STORY</span>
+
+        <h2>Crafted One Stitch At A Time</h2>
+
+        <p>
+            Crochet is more than just yarn and a hook.
+            Every stitch represents creativity, patience
+            and love.
+        </p>
+
+        <p>
+            Our goal is to create beautiful handmade
+            products that bring warmth and personality
+            into your home.
+        </p>
+
+        <a href="#contact" class="hero-button">
+            Get In Touch
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+    <h2>Let's Create Something Beautiful</h2>
+
+    <p>
+        Have a custom crochet idea?
+        We'd love to hear from you.
+    </p>
+
+    <button>
+        Contact Us
+    </button>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Cozy Crochet • Handmade With ❤️
+    </p>
+
+</footer>
+
+</body>
+</html>
